@@ -10,16 +10,19 @@ var express = require('express')
   , favicon = require('serve-favicon')
   , logger = require('morgan')
   , methodOverride = require('method-override')
-  ,Influx = require('Influx')
-  ,os = require('os')
-  ,metric = require('./Influxdb')
-  ,customMiddleware = require('./middleware/requestMeasure');
+  , Influx = require('Influx')
+  , os = require('os')
+  , metric = require('./Influxdb')
+  , customMiddleware = require('./middleware/requestMeasure');
 
 var app = express();
 
+// setup application parameters
 app.set('port', process.env.PORT || 9000);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
+
+// setup middleware used
 app.use(favicon(__dirname + '/public/images/favicon.png'));
 app.use(logger('dev'));
 app.use(bodyParser.urlencoded({ extended: false }));

@@ -35,5 +35,4 @@ exports.payment = function(req, res){
 exports.booking = function(req, res){
   metricSender.sendBookingMetric(req.params.id)
   res.sendStatus(200)
-  
 };
